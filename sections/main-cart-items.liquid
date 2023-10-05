@@ -302,7 +302,6 @@
                         {% for option in item.options_with_values %}
                           {% assign opt = opt | append: option.value | downcase %}
                           {% assign opt = opt | downcase %}
-                          {{ opt }}
                         {% endfor %}
                         {% if opt contains 'medium' and opt contains 'black' %}
                           {% assign slctedopt = true %}
