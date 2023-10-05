@@ -301,6 +301,7 @@
                         {% assign slctedopt = false %}
                         {% for option in item.options_with_values %}
                           {% assign opt = opt | append: option.value %}
+                          {{ opt }}
                         {% endfor %}
                         {% if opt contains 'medium' and opt contains 'black' %}
                           ifff
