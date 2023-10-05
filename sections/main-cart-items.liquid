@@ -307,7 +307,7 @@
                         {% endif %}
                           <a
                             href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
-                            class="button button--tertiary"
+                            class="button button--tertiary {% if slctedopt %} basde-cls {% endif %} {% if new_prodadd %} triigered {% endif %} "
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
                             {% render 'icon-remove' %}
