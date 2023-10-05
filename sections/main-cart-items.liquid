@@ -295,6 +295,7 @@
                         {% assign new_prodadd = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
+                          {{ item.product.metafields.custom.additional_product.value }} ff
                         {% assign new_prodadd = true %}
                         {% endif %}
                         {% assign slctedopt = false %}
@@ -305,7 +306,6 @@
                         {% if opt contains 'medium' and opt contains 'black' %}
                           {% assign slctedopt = true %}
                         {% endif %}
-
                           <a
                             href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
                             class="button button--tertiary"
