@@ -295,8 +295,8 @@
                         {% assign new_prod = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
-                          ifffhhh
                         {% assign new_prod = true %}
+                          {{ new_prod }}
                         {% endif %}
                         {% assign slctedopt = false %}
                         {% for option in item.options_with_values %}
@@ -305,8 +305,8 @@
                           {{ opt }}
                         {% endfor %}
                         {% if opt contains 'medium' and opt contains 'black' %}
-                          ifff
                           {% assign slctedopt = true %}
+                          {{ slctedopt }} slctedopt
                         {% endif %}
 
                           <a
