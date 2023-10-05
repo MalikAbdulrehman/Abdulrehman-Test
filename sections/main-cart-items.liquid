@@ -78,7 +78,6 @@
             <tbody>
             {% assign addition_item = '' %}
               {%- for item in cart.items -%}
-              {{ item.product.handle }} fds
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append: item.key %}
               {% endif %}
@@ -295,7 +294,6 @@
 
                         {% assign new_prod = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
-                        {{ new-prod_handle }} new-prod_handle
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
                         {% assign new_prod = true %}
                         {% endif %}
