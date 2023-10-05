@@ -3544,3 +3544,8 @@ details-disclosure > details {
 .select__select.size-dropdowncustom {
   border: 1px solid #000;
 }
+
+.overlay-active{
+  pointer-events:none;
+  opacity:0.5;
+}
