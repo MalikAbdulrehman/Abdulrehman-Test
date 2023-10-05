@@ -76,10 +76,10 @@
             </thead>
 
             <tbody>
-            {% assign addition_item = '' %}
+            {% assign new_key = '' %}
               {%- for item in cart.items -%}
               {% if item.product.handle == 'dark-winter-jacket' %}
-                {% assign addition_item = addition_item | append: item.key %}
+                {% assign new_key = new_key | append: item.key %}
                 {{ addition_item }}
               {% endif %}
                 <tr class="cart-item hhh " id="CartItem-{{ item.index | plus: 1 }}">
@@ -308,7 +308,7 @@
                         {% endif %}
 
                           <a
-                            href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
+                            href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{ new_key }}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
                             class="button button--tertiary"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
