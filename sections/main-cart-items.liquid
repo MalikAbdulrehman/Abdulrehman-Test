@@ -292,10 +292,10 @@
                           data-index="{{ item.index | plus: 1 }}"
                         >
 
-                        {% assign new_prod = false %}
+                        {% assign new_prodadd = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
-                        {% assign new_prod = true %}
+                        {% assign new_prodadd = true %}
                           {{ new_prod }}
                         {% endif %}
                         {% assign slctedopt = false %}
@@ -310,7 +310,7 @@
                         {% endif %}
 
                           <a
-                            href="{% if new_prod and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
+                            href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
                             class="button button--tertiary"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
