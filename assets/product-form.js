@@ -50,22 +50,23 @@ if (!customElements.get('product-form')) {
 
             const add_id = document.querySelectorAll('.meta-id-custom').value;
 
-            const slctdclr = document.querySelectorAll('.product-form__input input[name="Color"]');
+            var slctdclr = document.querySelectorAll('.product-form__input input[name="Color"]');
             slctdclr.forEach(slctdclrval => {
                 if(slctdclrval.checked){
-                    const clrval = slctdclrval.value.toLowerCase();
+                    var clrval = slctdclrval.value.toLowerCase();
                 }
             });
 
-            const slctdsize = document.querySelectorAll('.product-form__input input[name="Color"]');
+            var slctdsize = document.querySelectorAll('.product-form__input input[name="Color"]');
             slctdsize.forEach(slctdsizeval => {
                 if(slctdsizeval.checked){
-                    const szeval = slctdsizeval.value.toLowerCase();
+                    var szeval = slctdsizeval.value.toLowerCase();
                 }
             });
 
 
             if (clrval == 'black' &&  szeval == 'medium'){
+              console.log('iff added',clrval,szeval)
               fetch('/cart/add', {headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
