@@ -44,6 +44,34 @@ if (!customElements.get('product-form')) {
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
+
+            // check variants options labels on success of product while adding in cart
+            // console.log('alert');
+
+            const add_id = document.querySelectorAll('.meta-id-custom').value;
+
+            const slctdclr = document.querySelectorAll('.product-form__input input[name="Color"]');
+            slctdclr.forEach(slctdclrval => {
+                if(slctdclrval.checked){
+                    const clrval = slctdclrval.value.toLowerCase();
+                }
+            });
+
+            const slctdsize = document.querySelectorAll('.product-form__input input[name="Color"]');
+            slctdsize.forEach(slctdsizeval => {
+                if(slctdsizeval.checked){
+                    const szeval = slctdsizeval.value.toLowerCase();
+                }
+            });
+
+
+            if (clrval == 'black' &&  szeval == 'medium'){
+              fetch('/cart/add', {headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                }, body: JSON.stringify({quantity:"1",id:add_id}), method: 'POST'});
+              }
+
             if (response.status) {
               publish(PUB_SUB_EVENTS.cartError, {
                 source: 'product-form',
