@@ -80,9 +80,8 @@
               {%- for item in cart.items -%}
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append item.key %}
-                {{ addition_item }} addition_item
               {% endif %}
-                <tr class="cart-item ffffddd " id="CartItem-{{ item.index | plus: 1 }}">
+                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -296,19 +295,17 @@
                         {% assign new_prod = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
-                        iffff
                         {% assign new_prod = true %}
                         {% assign slctedopt = false %}
                         {% for option in item.options_with_values %}
                           {% assign opt = opt | append option.value %}
                         {% endfor %}
                         {% if opt contains 'medium' and opt contains 'black' %}
-                        iffffyyy
                           {% assign slctedopt = true %}
                         {% endif %}
 
                           <a
-                            href="{% if new_prod and slctedopt %} /cart/update?updates[{{ item.key }}]=0 & updates[{{ addition_item }}]=0; {% else %}  {{ item.url_to_remove }}" {%endif}
+                            href="{% if new_prod and slctedopt %} /cart/update?updates[{{ item.key }}]=0 & updates[{{ addition_item }}]=0; {% else %}  {{ item.url_to_remove }}" {% endif %}
                             class="button button--tertiary"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
