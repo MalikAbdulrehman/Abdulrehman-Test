@@ -39,24 +39,11 @@
               {%- for value in option.values -%}
                 <option value="{{ value }}" >{{ value }}</option>
               {%endfor %}
-              <div class="hidden-sizes-input hidden">
-                {% for value in option.values %}
-                   <input
-                    type="radio"
-                    id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                    name="{{ option.name }}"
-                    value="{{ value | escape }}"
-                    form="{{ product_form_id }}"
-                    {% if option.selected_value == value %}
-                      checked
-                    {% endif %}
-                    {% if option_disabled %}
-                      class="disabled"
-                    {% endif %}
-                  >
-                {% endfor %}
-              </div>
             </select>
+            <fieldset class="js product-form__input hidden">
+                <legend class="form__label">{{ option.name }}</legend>
+                {% render 'product-variant-options', product: product, option: option, block: block , opt: opt %}
+              </fieldset>
           {% endif %}
       {%- endfor -%}
       <script type="application/json">
