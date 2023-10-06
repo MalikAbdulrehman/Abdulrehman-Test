@@ -298,6 +298,7 @@
                         {{ new-prod_handle }} new-prod_handle
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
                         {% assign new_prod = true %}
+                        {% endif %}
                         {% assign slctedopt = false %}
                         {% for option in item.options_with_values %}
                           {% assign opt = opt | append: option.value %}
