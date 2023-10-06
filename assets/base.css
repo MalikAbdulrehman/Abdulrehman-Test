@@ -3522,3 +3522,19 @@ details-disclosure > details {
   text-indent: -9999px;
   color: #fff !important;
 }
+
+.product-form__input input[type=radio]:checked+label {
+  position: relative;
+}
+
+.product-form__input input[type=radio]:checked+label:before{
+  content:"";
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  border: 5px solid #fff !important;
+  width: 2.5em;
+  height: 2.5em;
+  z-index: 2;
+  transform: translate(-50%,-50%);
+}
