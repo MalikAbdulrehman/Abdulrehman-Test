@@ -38,7 +38,7 @@
               <option value="" >Unselected</option>
               {%- for value in option.values -%}
                 <option value="{{ value }}" >{{ value }}</option>
-              {%endfor}
+              {%endfor %}
               <fieldset class="js product-form__input hidden">
                 <legend class="form__label">{{ option.name }}</legend>
                 {% render 'product-variant-options', product: product, option: option, block: block , opt: opt %}
