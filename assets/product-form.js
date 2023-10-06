@@ -48,7 +48,7 @@ if (!customElements.get('product-form')) {
             // check variants options labels on success of product while adding in cart
             // console.log('alert');
 
-            var add_idd = document.querySelectorAll('.meta-id-custom').value;
+            var add_idd = document.querySelector('.meta-id-custom').value;
 
             var clrvall, szevall; // Declare the variables outside the loops
 
