@@ -78,11 +78,10 @@
             <tbody>
             {% assign addition_item = '' %}
               {%- for item in cart.items -%}
-              {{ item.product.handle }} fds
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append: item.key %}
               {% endif %}
-                <tr class="cart-item hhh " id="CartItem-{{ item.index | plus: 1 }}">
+                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -293,22 +292,21 @@
                           data-index="{{ item.index | plus: 1 }}"
                         >
 
-                        {% assign new_prod = false %}
+                        {% assign new_prodadd = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
-                        {{ new-prod_handle }} new-prod_handle
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
-                        {% assign new_prod = true %}
+                        {% assign new_prodadd = true %}
                         {% endif %}
                         {% assign slctedopt = false %}
                         {% for option in item.options_with_values %}
-                          {% assign opt = opt | append: option.value %}
+                          {% assign opt = opt | append: option.value | downcase %}
+                          {% assign opt = opt | downcase %}
                         {% endfor %}
                         {% if opt contains 'medium' and opt contains 'black' %}
                           {% assign slctedopt = true %}
                         {% endif %}
-
                           <a
-                            href="{% if new_prod and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
+                            href="{% if new_prodadd and slctedopt %}/cart/update?updates[{{item.key}}]=0&updates[{{addition_item}}]=0{% else %}{{ item.url_to_remove }}{% endif %}"
                             class="button button--tertiary"
                             aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                           >
