@@ -3519,6 +3519,6 @@ details-disclosure > details {
   padding: 0;
   width: 3em;
   height: 3em;
-  text-indent: -2000px;
-  color: white;
+  text-indent: -9999px;
+  color: #fff !important;
 }

@@ -343,23 +343,40 @@
 
 /* onload selected color images show */
 
+myFunction();
+
+/* on swatches click */
+
+const clrf = document.querySelectorAll('fieldset.js.product-form__input input[name="Color"]');
+clrf.forEach(element => {
+    element.addEventListener('click',myFunction);
+})
+
+/* functon to call for swatches*/
+
+function myFunction(){
 const clr = document.querySelectorAll('fieldset.js.product-form__input input[name="Color"]');
-let selectedcolor = null;
-clr.forEach(input => {
-    if(input.checked){
-        selectedcolor = input.value.toLowerCase();
-        const img = document.querySelectorAll('modal-opener.product__modal-opener .product__media  img');
-        img.forEach(alt => {
-            const selectedimg = alt.getAttribute('alt').toLowerCase();
-            if(selectedcolor == selectedimg ){
-                alt.closest('li.product__media-item').classList.remove('hidden');
-            }else{
-                alt.closest('li.product__media-item').classList.add('hidden');
-            }
-        })
-        
-    }
-});
+  let selectedcolor = null;
+  clr.forEach(input => {
+      if(input.checked){
+          selectedcolor = input.value.toLowerCase();
+          const img = document.querySelectorAll('modal-opener.product__modal-opener .product__media  img');
+          img.forEach(alt => {
+              const selectedimg = alt.getAttribute('alt').toLowerCase();
+              if(selectedcolor == selectedimg ){
+                  alt.closest('li.product__media-item').classList.remove('hidden');
+              }else{
+                  alt.closest('li.product__media-item').classList.add('hidden');
+              }
+          })
+          
+      }
+  });
+}
+
+
+
+
 
 </script>
 
