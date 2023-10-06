@@ -78,7 +78,7 @@
             <tbody>
             {% assign addition_item = '' %}
               {%- for item in cart.items -%}
-              {{ item.product.handle }}
+              {{ item.product.handle }} {{ item.handle }}
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append item.key %}
                 {{ addition_item }} addition_item
