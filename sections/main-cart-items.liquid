@@ -78,10 +78,11 @@
             <tbody>
             {% assign addition_item = '' %}
               {%- for item in cart.items -%}
+              {{ item.product.handle }}
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append item.key %}
               {% endif %}
-                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+                <tr class="cart-item fff " id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -294,6 +295,7 @@
 
                         {% assign new_prod = false %}
                         {% assign new-prod_handle = item.product.metafields.custom.additional_product.value %}
+                        {{ new-prod_handle }} new-prod_handle
                         {% if new-prod_handle.handle == 'dark-winter-jacket' %}
                         {% assign new_prod = true %}
                         {% assign slctedopt = false %}
