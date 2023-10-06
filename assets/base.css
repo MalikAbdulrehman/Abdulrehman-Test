@@ -3538,3 +3538,9 @@ details-disclosure > details {
   z-index: 2;
   transform: translate(-50%,-50%);
 }
+
+/* sizes dropdown */
+
+.select__select.size-dropdowncustom {
+  border: 1px solid #000;
+}
