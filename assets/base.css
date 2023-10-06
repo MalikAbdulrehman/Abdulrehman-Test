@@ -3511,3 +3511,14 @@ details-disclosure > details {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
 }
+
+
+/* product page swatches css  */
+
+.product-form__input label{
+  padding: 0;
+  width: 3em;
+  height: 3em;
+  text-indent: -2000px;
+  color: white;
+}

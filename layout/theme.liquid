@@ -339,9 +339,27 @@
 
 
 <script>
-// show only selected color bags images on click
+/* show only selected color bags images on click */
 
+/* onload selected color images show */
 
+const clr = document.querySelectorAll('fieldset.js.product-form__input input[name="Color"]');
+let selectedcolor = null;
+clr.forEach(input => {
+    if(input.checked){
+        selectedcolor = input.value.toLowerCase();
+        const img = document.querySelectorAll('modal-opener.product__modal-opener .product__media  img');
+        img.forEach(alt => {
+            const selectedimg = alt.getAttribute('alt').toLowerCase();
+            if(selectedcolor == selectedimg ){
+                alt.closest('li.product__media-item').classList.remove('hidden');
+            }else{
+                alt.closest('li.product__media-item').classList.add('hidden');
+            }
+        })
+        
+    }
+});
 
 </script>
 
