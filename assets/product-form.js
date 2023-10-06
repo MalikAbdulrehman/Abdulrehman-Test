@@ -48,30 +48,41 @@ if (!customElements.get('product-form')) {
             // check variants options labels on success of product while adding in cart
             // console.log('alert');
 
-            const add_id = document.querySelectorAll('.meta-id-custom').value;
+            var add_idd = document.querySelectorAll('.meta-id-custom').value;
 
-            var slctdclr = document.querySelectorAll('.product-form__input input[name="Color"]');
-            slctdclr.forEach(slctdclrval => {
-                if(slctdclrval.checked){
-                    var clrval = slctdclrval.value.toLowerCase();
+            var clrvall, szevall; // Declare the variables outside the loops
+
+            var slctdclrr = document.querySelectorAll('.product-form__input input[name="Color"]');
+            slctdclrr.forEach(slctdclrvall => {
+                if (slctdclrvall.checked) {
+                    clrvall = slctdclrvall.value.toLowerCase();
                 }
             });
 
-            var slctdsize = document.querySelectorAll('.product-form__input input[name="Color"]');
-            slctdsize.forEach(slctdsizeval => {
-                if(slctdsizeval.checked){
-                    var szeval = slctdsizeval.value.toLowerCase();
+            var slctdsizee = document.querySelectorAll('.product-form__input input[name="Size"]');
+            slctdsizee.forEach(slctdsizevall => {
+                if (slctdsizevall.checked) {
+                    szevall = slctdsizevall.value.toLowerCase();
                 }
             });
 
+            if (clrvall == 'black' && szevall == 'medium') {
+                console.log('if added', clrvall, szevall,add_idd);
+                fetch('/cart/add', {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        quantity: "1",
+                        id: add_idd
+                    }),
+                    method: 'POST'
+                });
+            }
 
-            if (clrval == 'black' &&  szeval == 'medium'){
-              console.log('iff added',clrval,szeval)
-              fetch('/cart/add', {headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                }, body: JSON.stringify({quantity:"1",id:add_id}), method: 'POST'});
-              }
+            // ======ended
+
 
             if (response.status) {
               publish(PUB_SUB_EVENTS.cartError, {
