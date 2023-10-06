@@ -28,10 +28,10 @@
             <legend class="form__label">{{ option.name }}</legend>
             {% render 'product-variant-options', product: product, option: option, block: block , opt: opt %}
           </fieldset>
-          {% else %}
+          {% elsif option.name == 'Size' %}
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select size-dropdowncustom {{ opt }} "
+              class="select__select size-dropdowncustom {{ option.name }}"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
