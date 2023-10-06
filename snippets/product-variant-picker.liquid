@@ -31,7 +31,7 @@
           {% elsif option.name == 'Size' %}
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select size-dropdowncustom {{ option.name }}"
+              class="select__select size-dropdowncustom"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
@@ -39,6 +39,10 @@
               {%- for value in option.values -%}
                 <option value="{{ value }}" >{{ value }}</option>
               {%endfor}
+              <fieldset class="js product-form__input hidden">
+            <legend class="form__label">{{ option.name }}</legend>
+            {% render 'product-variant-options', product: product, option: option, block: block , opt: opt %}
+          </fieldset>
             </select>
           {% endif %}
       {%- endfor -%}
