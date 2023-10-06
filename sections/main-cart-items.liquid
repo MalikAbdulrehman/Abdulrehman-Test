@@ -80,9 +80,8 @@
               {%- for item in cart.items -%}
               {% if item.product.handle == 'dark-winter-jacket' %}
                 {% assign addition_item = addition_item | append: item.key %}
-                {% addition_item %} addition_item
               {% endif %}
-                <tr class="cart-item {% if item.product.handle == 'dark-winter-jacket' %} overlay-active {%endif}" id="CartItem-{{ item.index | plus: 1 }}">
+                <tr class="cart-item {% if item.product.handle == 'dark-winter-jacket' %} overlay-active {% endif %}" id="CartItem-{{ item.index | plus: 1 }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
