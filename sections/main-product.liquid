@@ -423,6 +423,10 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
+
+              {% assign add_prod = product.metafields.custom.additional_product.value %}
+              <span class="meta-id-custom hidden" value="{{ add_prod.selected_or_first_available_variant.id }}" ></span>    
+
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
