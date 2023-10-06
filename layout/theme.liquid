@@ -375,6 +375,24 @@ const clr = document.querySelectorAll('fieldset.js.product-form__input input[nam
 }
 
 
+/* Size dropdown functionality */
+
+const selectedElements = document.querySelectorAll('.select__select.size-dropdowncustom');
+selectedElements.forEach(selectedElement => {
+  selectedElement.addEventListener('change', function () {
+    const selectedOptionValue = selectedElement.value.toLowerCase();
+    const labels = document.querySelectorAll('fieldset.js.product-form__input.hidden input');
+    labels.forEach(label => {
+      const lbl = label.value.toLowerCase();
+      if (lbl == selectedOptionValue) {
+        label.click();
+      }
+    });
+  });
+});
+
+
+
 
 
 
