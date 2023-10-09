@@ -217,7 +217,7 @@
                   {%- if forloop.index > 2 -%}
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
-
+                  {% unless item.handle == "dark-winter-jacket" %}
                   <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {% if settings.animations_reveal_on_scroll %}
                       data-cascade
@@ -262,6 +262,7 @@
                           </div>
                         </div>
                     {%- endcase -%}
+                    {% endunless %}
                   </li>
                 {%- endfor -%}
               </ul>
