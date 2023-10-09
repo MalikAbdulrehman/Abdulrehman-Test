@@ -348,7 +348,6 @@ myFunction();
 /* onload unselected disabled */
 
 document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function(){
   var selectElement = document.querySelector('.size-dropdowncustom');
   if(selectElement){
     var selectedValue = selectElement.value.toLowerCase();
@@ -359,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('product-form.product-form').classList.remove('overlay-active');
     }
   }
-  },200)
 })
 
 /* on swatches click */
