@@ -347,17 +347,18 @@ myFunction();
 
 /* onload unselected disabled */
 
-
-var selectElement = document.querySelector('.size-dropdowncustom');
-if(selectElement){
-  var selectedValue = selectElement.value;
-  // Check if a value is unselected
-    if(selectedValue == 'unselected' ){
-      document.querySelector('product-form.product-form').classList.add('overlay-active');
-  } else {
-    document.querySelector('product-form.product-form').classList.remove('overlay-active');
+document.addEventListener('DOMContentLoaded', function () {
+  var selectElement = document.querySelector('.size-dropdowncustom');
+  if(selectElement){
+    var selectedValue = selectElement.value.toLowerCase();
+    // Check if a value is unselected
+      if(selectedValue == 'unselected' ){
+        document.querySelector('product-form.product-form').classList.add('overlay-active');
+    } else {
+      document.querySelector('product-form.product-form').classList.remove('overlay-active');
+    }
   }
-}
+})
 
 /* on swatches click */
 
