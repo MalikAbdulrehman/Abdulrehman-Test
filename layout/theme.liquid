@@ -348,8 +348,8 @@ myFunction();
 /* onload unselected disabled */
 var selectElement = document.querySelector('.size-dropdowncustom');
 if(selectElement){
+  selectElement.selectedIndex = 0;
   var selectedValue = selectElement.value;
-
   // Check if a value is unselected
     if(selectedValue == 'unselected' ){
       document.querySelector('product-form.product-form').classList.add('overlay-active');
