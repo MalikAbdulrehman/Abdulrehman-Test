@@ -348,18 +348,18 @@ myFunction();
 /* onload unselected disabled */
 
 document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function(){
   var selectElement = document.querySelector('.size-dropdowncustom');
   if(selectElement){
     var selectedValue = selectElement.value.toLowerCase();
-    setTimeout(function(){
     // Check if a value is unselected
       if(selectedValue == 'unselected' ){
         document.querySelector('product-form.product-form').classList.add('overlay-active');
     } else {
       document.querySelector('product-form.product-form').classList.remove('overlay-active');
     }
-    },200)
   }
+  },1000)
 })
 
 /* on swatches click */
