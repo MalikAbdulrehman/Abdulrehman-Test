@@ -381,7 +381,9 @@ const selectedElements = document.querySelectorAll('.select__select.size-dropdow
 selectedElements.forEach(selectedElement => {
   selectedElement.addEventListener('change', function () {
     const selectedOptionValue = selectedElement.value.toLowerCase();
+    console.log('selectedOptionValue',selectedOptionValue);
     if(selectedOptionValue == 'unselected'){
+      console.log('iffff');
       document.querySelectorAll('product-form.product-form').classList.add('overlay-active');
     }else{
       document.querySelectorAll('product-form.product-form').classList.remove('overlay-active');
