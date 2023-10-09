@@ -35,7 +35,7 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              <option value="" >Unselected</option>
+              <option value="unselected" >Unselected</option>
               {%- for value in option.values -%}
                 <option value="{{ value }}" >{{ value }}</option>
               {%endfor %}
