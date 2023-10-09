@@ -346,9 +346,12 @@
 myFunction();
 
 /* onload unselected disabled */
+
+window.addEventListener('popstate', setDefaultSelectedIndex);
+
 var selectElement = document.querySelector('.size-dropdowncustom');
 if(selectElement){
-  selectElement.selectedIndex = 0;
+  setDefaultSelectedIndex();
   var selectedValue = selectElement.value;
   // Check if a value is unselected
     if(selectedValue == 'unselected' ){
@@ -356,6 +359,10 @@ if(selectElement){
   } else {
     document.querySelector('product-form.product-form').classList.remove('overlay-active');
   }
+}
+
+function setDefaultSelectedIndex() {
+  document.querySelector('.size-dropdowncustom').selectedIndex = 0;
 }
 
 /* on swatches click */
