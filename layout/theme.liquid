@@ -381,6 +381,11 @@ const selectedElements = document.querySelectorAll('.select__select.size-dropdow
 selectedElements.forEach(selectedElement => {
   selectedElement.addEventListener('change', function () {
     const selectedOptionValue = selectedElement.value.toLowerCase();
+    if(selectedOptionValue == 'unselected'){
+      document.querySelectorAll('product-form.product-form').classList.add('overlay-active');
+    }else{
+      document.querySelectorAll('product-form.product-form').classList.remove('overlay-active');
+    }
     const labels = document.querySelectorAll('fieldset.js.product-form__input.hidden input');
     labels.forEach(label => {
       const lbl = label.value.toLowerCase();
